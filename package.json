@@ -1,0 +1,31 @@
+{
+  "name": "veda-botanic",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Veda Botanic — luxury botanical skincare and everyday rituals. An editorial concept storefront.",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "typecheck": "tsc -b --noEmit",
+    "qa:structure": "esbuild scripts/qa-structure.tsx --bundle --platform=node --format=esm --outfile=.qa/structure.mjs --external:jsdom --external:react --external:react-dom --loader:.css=empty --log-level=error && node .qa/structure.mjs",
+    "qa:interactions": "esbuild scripts/qa-interactions.tsx --bundle --platform=node --format=esm --outfile=.qa/interactions.mjs --external:jsdom --external:react --external:react-dom --loader:.css=empty --log-level=error && node .qa/interactions.mjs",
+    "qa": "npm run typecheck && npm run qa:structure && npm run qa:interactions"
+  },
+  "dependencies": {
+    "@fontsource-variable/hanken-grotesk": "^5.2.8",
+    "@fontsource/cormorant-garamond": "^5.2.8",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.4.0",
+    "esbuild": "^0.25.0",
+    "jsdom": "^26.1.0",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.0"
+  }
+}
